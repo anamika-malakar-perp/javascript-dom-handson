@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h3>1.Write the code to access element which is having id as "text"</h3>
+    <pre>
+        <div id="text">Hi, Welcome to Perpbyte handson</div>
+
+        let text = document.getElementById('text');
+        console.log(text.innerText)
+    </pre>
+
+    <h3>2.Write the code to access element which is having tag as "h1"</h3>
+    <pre>
+        <h1>Hi, I am h1 tag, thank you to access me.</h1>
+    </pre>
+
+    <h3>3.Write the code to access element which is having class as "box"</h3>
+    <pre>
+        <div class="box">Hello, I am box</div>
+
+        let box = document.getElementsByClassName('box');
+        console.log(box[0].innerText);
+    </pre>
+
+    <h3>4."Hello" - Change the heading from ""Hello"" to ""Hello World"" using DOM functions"</h3>
+    <pre>
+        <h1 id="change-name">Hello</h1>
+
+        let headingName = document.getElementById('change-name');
+        headingName.innerText = 'Hello World';
+    </pre>
+
+    <h3>5.Create three cards on HTML page and arrange them using flex property in row or horizontal direction and also create button at the bottom named "Change 
+        Flex direction". When user clicks on this button, the cards arrangement should be changed to vertical direction.</h3>
+    <pre>
+        <div id="box-align">
+            <div class="boxes"></div>
+            <div class="boxes"></div>
+            <div class="boxes"></div>
+        </div>
+
+        <button id="change-btn">Click here!</button>
+    </pre>
+
+    <h3>6.What’s the difference between window vs document?</h3>
+        <p>
+            Document Object: The document object represent a web page that is loaded in the browser. By accessing the document object, we can access the element 
+            in the HTML page. With the help of document objects, we can add dynamic content to our web page. The document object can be accessed with a 
+            window.document or just document.
+
+            Ex:document.property_name;
+        </p>
+
+        <p>
+            The window object is the topmost object of the DOM hierarchy. It represents a browser window or frame that displays the contents of the webpage. 
+            Whenever a window appears on the screen to display the contents of the document, the window object is created. 
+
+            Ex:window.property_name;
+        </p>
+
+    <h3>7."Hello Add one style attribute and give text color as red and id attribute and give the id value as ""heading"" in the above given h1 tag using DOM 
+        functions" 
+    </h3>
+    <pre>
+        <h1>Hello</h1>
+
+        let heading = document.getElementsByTagName('h1')[2];
+        heading.style.color = 'tomato';
+        heading.setAttribute('id', 'heading');
+    </pre>
+
+    <h3>8.Create an HTML page having content as Hello world and a button named Replace Text. When user will click on this button page content should be changed 
+        to "Welcome to Elevation academy"</h3>
+    <pre>
+        <p id="content">Hello world</p>
+        <button id="replace-btn">Replace text</button>
+    </pre>
+
+    <h3>9.Write code to implement timer clock using JS -- display HH:MM:SS -- the time should keep updating every second</h3>
+    <pre>
+        <div class="time">
+            <span>TIME</span>
+            <div class="scheduled-time">
+                <div id="hours" class="time-count">
+                    <p></p>
+                    <p>hours</p>
+                </div>
+                <span class="colon">:</span>
+                <div id="minute" class="time-count">
+                    <p></p>
+                    <p>mins</p>
+                </div>
+                <span class="colon">:</span>
+                <div id="seconds" class="time-count">
+                    <p></p>
+                    <p>secs</p>
+                </div>
+            </div>
+        </div>
+
+        function timerFunction() {
+            let hours           = document.getElementById('hours').getElementsByTagName('p');
+            let minutes         = document.getElementById('minute').getElementsByTagName('p');
+            let seconds         = document.getElementById('seconds').getElementsByTagName('p');
+
+            const d = new Date();
+
+            let hour = d.getHours();
+            hours[0].innerText = hour;
+
+            let min = d.getMinutes();
+            minutes[0].innerText = min;
+
+            let sec = d.getSeconds();
+            seconds[0].innerText = sec;
+        }
+
+        setInterval(function() {
+            timerFunction();
+        },1000)
+    </pre>
+
+    <h3>10.Create a select drop down for selecting Year 20-21, 21-22 etc. Print the item text selected</h3>
+    <pre>
+        <select id="select-year">
+            <option value="20-21">20-21</option>
+            <option value="21-22">21-22</option>
+        </select>
+
+        <p id="selected-year"></p>
+
+        let selectYear = document.getElementById('select-year');
+
+        selectYear.addEventListener('change', function(event) {
+            let selectedYear = document.getElementById('selected-year');
+            selectedYear.innerText = event.target.selectedOptions[0].text;
+        })
+    </pre>
+
+    <script src="./index.js"></script>
+</body>
+</html>

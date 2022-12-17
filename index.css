@@ -1,0 +1,20 @@
+#box-align {
+    display: flex;
+}
+
+.boxes {
+    width: 100px;
+    height: 100px;
+    background-color: tomato;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.scheduled-time {
+    display: flex;
+    align-items: center;
+}
+
+.time-count {
+    display: flex;
+}
